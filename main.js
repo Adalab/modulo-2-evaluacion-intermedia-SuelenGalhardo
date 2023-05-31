@@ -15,11 +15,12 @@ btn.addEventListener('click', () => {
   const randomNumber = getRandomNumber(6);
 
   if (selectValue == randomNumber) {
-    const nuevoSaldo = inputApuesta.value * 2 + saldo.value;
-    //saldo.innerHTML = nuevoSaldo;
-    console.log('test', inputApuesta.value * 2, saldo.innerHTML);
+    const nuevoSaldo = inputApuesta.value * 2 + Number(saldo.innerHTML);
+    saldo.innerHTML = nuevoSaldo;
     result.innerHTML = 'Has ganado el doble de lo apostado';
   } else {
     result.innerHTML = 'Has perdido lo apostado, el numero generado fue: ' + randomNumber;
+    const nuevoSaldo = Number(saldo.innerHTML) - inputApuesta.value;
+    saldo.innerHTML = nuevoSaldo;
   }
 });
